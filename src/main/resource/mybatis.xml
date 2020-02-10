@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--全局配置-->
+<configuration>
+
+    <!--1.使用properties 来引入properties配置文件的内容 -->
+    <!--    <properties resource="dbconf.properties"></properties>-->
+
+    <!--2.settings 全局设置 setting-->
+    <settings>
+        <!--驼峰命名规则-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--开启懒加载-->
+        <setting name="lazyLoadingEnabled" value="true"></setting>
+        <setting name="aggressiveLazyLoading" value="false"></setting>
+        <!--开启缓存-->
+        <setting name="cacheEnabled" value="true"></setting>
+    </settings>
+</configuration>

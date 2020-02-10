@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd"><!---->
+
+    <!--在web.xml中配置servlet之后，必须要指定springMVC的配置，如果不指定Spring—MVC的配置路径,
+        那么就会在默认路径/WEB-INF/下寻找对应的配置文件，默认文件名为配置的servetName-servlet.xml
+
+        既然是spring MVC的配置文件，那么就必须要配置好 M（model） V（View） C(controller)
+        由此可以知道：在SpringMVC中的基本配置有
+        1.视图解析器===>MV
+        2.控制器=======>C
+    -->
+    <mvc:annotation-driven/>
+    <!--spring mvc 按照注解扫描，只扫描控制器 禁用默认的过滤行为-->
+    <context:component-scan base-package="com.myssm.paul.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:include-filter>
+    </context:component-scan>
+
+    <!--视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--访问一些静态资源  成对出现-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+</beans>
