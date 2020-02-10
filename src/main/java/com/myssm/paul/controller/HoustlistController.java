@@ -93,6 +93,7 @@ public class HoustlistController {
 		model.addAttribute("mainPage", "changehouse.jsp");
 		return "admin/main1";
 	}
+
 	@RequestMapping("/findhouseidupdate")
 	public String findhouseidupdate(Houselist houselist,Model model){
 		Houselist list=houselistService.findhouseidupdate(houselist);
@@ -109,6 +110,11 @@ public class HoustlistController {
 			model.addAttribute("error","更新成功");
 			return "admin/main1";
 		}
+	}
+	@RequestMapping("/tomap")
+	public String getMap(Model model){
+		model.addAttribute("mainPage", "map.jsp");
+		return "admin/main1";
 	}
 	
 }

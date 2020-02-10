@@ -76,10 +76,11 @@
                     <div class="p"><ul class="sub-menu">
                         <li><a href="/ahouselist.action"><i class="icon-font">&#xe008;</i>房源列表</a></li>
                          <li><a href="/toaddhouse.action"><i class="icon-font">&#xe008;</i>添加房源</a></li>
-       
+                        <li><a href="/tomap.action"><i class="icon-font">&#xe008;</i>地图找房</a></li>
                     </ul>
                     </div>
                 </li>
+
                 <li>
                     <a class="a"><i class="icon-font">&#xe018;</i>租赁及合同信息</a>
              <div class="p">         <ul class="sub-menu">

@@ -18,7 +18,6 @@
     <script type="text/javascript" src="/js/jquery-ui-datepicker.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
-	</script>
 	<style type="text/css">
 	.sum{
 	float:right;

@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
-	</script>
 	<style type="text/css">
 	
 	
