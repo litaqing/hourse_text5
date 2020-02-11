@@ -1,15 +1,22 @@
 package com.myssm.paul.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.myssm.paul.pojo.Houselist;
+import com.myssm.paul.pojo.Map;
 import com.myssm.paul.service.HouselistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -113,8 +120,41 @@ public class HoustlistController {
 	}
 	@RequestMapping("/tomap")
 	public String getMap(Model model){
+		List<Map>  mapList=new ArrayList<Map>();
+		mapList.add(new Map(118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+		mapList.add(new Map(118.457882,32.049839,"地址：北京市东城区东华门大街"));
+		mapList.add(new Map(118.62882,32.039839,"地址：北京市东城区正义路甲5号"));
+		mapList.add(new Map(118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+		mapList.add(new Map(118.6666,32.019839,"地址：北京市东城区东华门大街"));
+		mapList.add(new Map(118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+		mapList.add(new Map(118.377882,32.052839,"地址：北京市东城区东华门大街"));
+		mapList.add(new Map(118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+		mapList.add(new Map(118.177882,32.054839,"地址：北京市东城区东华门大街"));
+		mapList.add(new Map(118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+		mapList.add(new Map(118.795394,32.027002,"地址：北京市东城区东华门大街"));
+		JSONArray array= JSONArray.parseArray(JSON.toJSONString(mapList));
+		model.addAttribute("mapList",array);
 		model.addAttribute("mainPage", "map.jsp");
 		return "admin/main1";
 	}
+//	@RequestMapping(value = "/getMap",method = RequestMethod.POST)
+//	public List<Map> getMap(){
+//      List<Map>  mapList=new ArrayList<Map>();
+//      mapList.add(new Map(118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.457882,32.049839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.62882,32.039839,"地址：北京市东城区正义路甲5号"));
+//		mapList.add(new Map(118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.6666,32.019839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.377882,32.052839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.177882,32.054839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.795394,32.027002,"地址：北京市东城区东华门大街"));
+//
+//
+//
+//      return mapList;
+//	}
 	
 }

@@ -10,16 +10,35 @@
       #allmap {width: 1200px;height: 400px;overflow: hidden;margin:0;font-family:"微软雅黑";}
     </style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=UyuVONEtIuG8g0RiR47I8e0alOjGG4cv"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="//api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
     <script type="text/javascript" src="//api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
     <title>地图展示</title>
 </head>
 <body>
 <div id="allmap"></div>
+<H1>横坐标是：${mapList[0].x}</H1>
+
+
+<button id="getM">获取</button>
 </body>
 </html>
 
 <script type="text/javascript">
+
+    <%--$(document).ready(function () {--%>
+        <%--var data = [[${mapList}]];--%>
+        <%--alert(data);--%>
+      <%----%>
+    <%--});--%>
+        var data = eval('${mapList}');
+
+        for (var i = 0; i < data.length; i++) {
+            var array_element = data[i];
+            console.log(array_element.x);
+
+        }
+
     // 百度地图API功能
     var map = new BMap.Map("allmap");    // 创建Map实例
     map.centerAndZoom(new BMap.Point(118.871327,32.151263), 12);  // 初始化地图,设置中心点坐标和地图级别
@@ -44,24 +63,24 @@
         {'x':118.795394,'y':32.027002}
     ];
 
-    var data_info = [[118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-        [118.457882,32.049839,"地址：北京市东城区东华门大街"],
-        [118.62882,32.039839,"地址：北京市东城区正义路甲5号"],
-        [118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-        [118.6666,32.019839,"地址：北京市东城区东华门大街"],
-        [118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-        [118.377882,32.052839,"地址：北京市东城区东华门大街"],
-        [118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-        [118.177882,32.054839,"地址：北京市东城区东华门大街"],
-        [118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-        [118.795394,32.027002,"地址：北京市东城区东华门大街"]
-    ];
+    // var data_info = [[118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+    //     [118.457882,32.049839,"地址：北京市东城区东华门大街"],
+    //     [118.62882,32.039839,"地址：北京市东城区正义路甲5号"],
+    //     [118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+    //     [118.6666,32.019839,"地址：北京市东城区东华门大街"],
+    //     [118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+    //     [118.377882,32.052839,"地址：北京市东城区东华门大街"],
+    //     [118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+    //     [118.177882,32.054839,"地址：北京市东城区东华门大街"],
+    //     [118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+    //     [118.795394,32.027002,"地址：北京市东城区东华门大街"]
+    // ];
     var markers = [];
     var pt = null;
-    for (var i in data_info) {
-        pt = new BMap.Point(data_info[i][0] , data_info[i][1]);
+    for (var i = 0; i < data.length; i++) {
+        pt = new BMap.Point(data[i].x ,data[i].y);
         var ma=new BMap.Marker(pt);
-        addClickHandler(data_info[i][2],ma);
+        addClickHandler(data[i].content,ma);
         markers.push(ma);
     }
 
