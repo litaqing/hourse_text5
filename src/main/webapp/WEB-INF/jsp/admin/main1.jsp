@@ -144,6 +144,7 @@
     <div class="main-wrap">
         <div class="crumb-wrap">
             <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用本系统！</span></div>
+            <font id="error1" color="red">${msg }</font>
         </div>
 
         <div class="result-wrap" id="inside">

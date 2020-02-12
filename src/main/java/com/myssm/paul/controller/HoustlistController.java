@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -54,23 +55,18 @@ public class HoustlistController {
 		return "admin/main1";
 	}
 	
-	@RequestMapping("/addhouse")
+	@RequestMapping(value = "/addhouse",produces = "text/plain;charset=utf-8")
+    @ResponseBody
 	public String addhouse(Model model ,Houselist houselist){
-		
+		System.out.println(houselist.toString());
 		String houseid=houselist.getHouseid();
 		Houselist houselist1=houselistService.findhouseid(houseid);
 		if(houselist1!=null){
-			model.addAttribute("error","该房屋id已存在");
-			model.addAttribute("houselist",houselist);
-			model.addAttribute("mainPage","addhouse.jsp");
-			return "admin/main1";
+			return "该房屋id已存在";
 		}else{
-			model.addAttribute("error","添加成功");
 			houselistService.inserthouse(houselist);
-			model.addAttribute("houselist",houselist);
-			model.addAttribute("mainPage","addhouse.jsp");
-		return "admin/main1";
-	}
+		return "添加成功！";
+		}
 		}
 	
 	@RequestMapping("/toaddhouse")
@@ -100,39 +96,35 @@ public class HoustlistController {
 		model.addAttribute("mainPage", "changehouse.jsp");
 		return "admin/main1";
 	}
-
-	@RequestMapping("/findhouseidupdate")
+    @ResponseBody
+	@RequestMapping(value = "/findhouseidupdate",produces = "text/plain;charset=utf-8")
 	public String findhouseidupdate(Houselist houselist,Model model){
 		Houselist list=houselistService.findhouseidupdate(houselist);
-		if(list!=null){
-			model.addAttribute("houselist",houselist);
-			model.addAttribute("mainPage", "changehouse.jsp");
-			model.addAttribute("error","该房屋id已存在");
-			return "admin/main1";
+		System.out.println(houselist.toString());
+		if(list==null){
+			return "房屋id错误";
 		}
 		else{
 			houselistService.updatehouse(houselist);
-			model.addAttribute("houselist",houselist);
-			model.addAttribute("mainPage", "changehouse.jsp");
-			model.addAttribute("error","更新成功");
-			return "admin/main1";
+			return "更新成功";
 		}
 	}
 	@RequestMapping("/tomap")
 	public String getMap(Model model){
-		List<Map>  mapList=new ArrayList<Map>();
-		mapList.add(new Map(118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-		mapList.add(new Map(118.457882,32.049839,"地址：北京市东城区东华门大街"));
-		mapList.add(new Map(118.62882,32.039839,"地址：北京市东城区正义路甲5号"));
-		mapList.add(new Map(118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-		mapList.add(new Map(118.6666,32.019839,"地址：北京市东城区东华门大街"));
-		mapList.add(new Map(118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-		mapList.add(new Map(118.377882,32.052839,"地址：北京市东城区东华门大街"));
-		mapList.add(new Map(118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-		mapList.add(new Map(118.177882,32.054839,"地址：北京市东城区东华门大街"));
-		mapList.add(new Map(118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-		mapList.add(new Map(118.795394,32.027002,"地址：北京市东城区东华门大街"));
-		JSONArray array= JSONArray.parseArray(JSON.toJSONString(mapList));
+        List<Houselist> houselist=houselistService.selectAll();
+//		List<Map>  mapList=new ArrayList<Map>();
+//		mapList.add(new Map(118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.457882,32.049839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.62882,32.039839,"地址：北京市东城区正义路甲5号"));
+//		mapList.add(new Map(118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.6666,32.019839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.377882,32.052839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.177882,32.054839,"地址：北京市东城区东华门大街"));
+//		mapList.add(new Map(118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
+//		mapList.add(new Map(118.795394,32.027002,"地址：北京市东城区东华门大街"));
+		JSONArray array= JSONArray.parseArray(JSON.toJSONString(houselist));
 		model.addAttribute("mapList",array);
 		model.addAttribute("mainPage", "map.jsp");
 		return "admin/main1";

@@ -17,7 +17,7 @@
 </head>
 <body>
 <div id="allmap"></div>
-<H1>横坐标是：${mapList[0].x}</H1>
+<H1>横坐标是：${mapList[0].content}</H1>
 
 
 <button id="getM">获取</button>
@@ -33,11 +33,7 @@
     <%--});--%>
         var data = eval('${mapList}');
 
-        for (var i = 0; i < data.length; i++) {
-            var array_element = data[i];
-            console.log(array_element.x);
 
-        }
 
     // 百度地图API功能
     var map = new BMap.Map("allmap");    // 创建Map实例

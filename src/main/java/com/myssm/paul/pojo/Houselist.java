@@ -2,11 +2,55 @@ package com.myssm.paul.pojo;
 
 public class Houselist {
   private Integer id;
-  private String houseid;
+
+	@Override
+	public String toString() {
+		return "Houselist{" +
+				"id=" + id +
+				", houseid='" + houseid + '\'' +
+				", address='" + address + '\'' +
+				", area=" + area +
+				", price=" + price +
+				", status='" + status + '\'' +
+				", x=" + x +
+				", y=" + y +
+				", content='" + content + '\'' +
+				'}';
+	}
+
+	private String houseid;
   private String address;
   private double area;
   private double price;
   private String status;
+  private double x;
+  private double y;
+  private String content;
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+
 public Integer getId() {
 	return id;
 }

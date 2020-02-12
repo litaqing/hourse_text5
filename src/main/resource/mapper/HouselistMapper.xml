@@ -7,6 +7,9 @@
     <result column="area" property="area" jdbcType="DOUBLE" />
     <result column="price" property="price" jdbcType="DOUBLE" />
      <result column="status" property="status" jdbcType="VARCHAR" />
+	  <result column="x" property="x" jdbcType="DOUBLE" />
+	  <result column="y" property="y" jdbcType="DOUBLE" />
+	  <result column="content" property="content" jdbcType="VARCHAR" />
   </resultMap>
  <select id="selectAll" resultMap="BaseResultMap">
    select *
@@ -60,10 +63,10 @@
 		select * from houselist where houseid=#{houseid}
 	</select>
 	<select id="findhouseidupdate" parameterType="com.myssm.paul.pojo.Houselist" resultType="com.myssm.paul.pojo.Houselist">
-		select * from houselist where houseid=#{houseid} and id!=#{id}
+		select * from houselist where houseid=#{houseid} and id=#{id}
 	</select>
 	<update id="updatehouse" parameterType="com.myssm.paul.pojo.Houselist">
-		update houselist set houseid=#{houseid},address=#{address},area=#{area},price=#{price},status=#{status}
+		update houselist set houseid=#{houseid},address=#{address},area=#{area},price=#{price},status=#{status},x=#{x},y=#{y},content=#{content}
 		where id=#{id}
 </update>
 <update id="updatehousestatus" parameterType="com.myssm.paul.pojo.Houselist">
@@ -76,8 +79,8 @@
 </update>
 	
 	<insert id="inserthouse" parameterType="com.myssm.paul.pojo.Houselist">
-	  insert into houselist(houseid,address,area,price,status) 
-	  values(#{houseid},#{address},#{area},#{price},#{status})
+	  insert into houselist(houseid,address,area,price,status,x,y,content)
+	  values(#{houseid},#{address},#{area},#{price},#{status},#{x},#{y},#{content})
 	</insert>
 	
 	<delete id="deletehouse" parameterType="Integer" >
