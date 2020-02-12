@@ -95,7 +95,7 @@
                         租客
                     </label>
                     <div class="form-group col-md-offset-9">
-                        <button type="submit"  id="login-button" class="btn btn-success pull-right" name="submit">确定</button>
+                        <button type="submit"   id="login-button" class="btn btn-success pull-right" name="submit">确定</button>
                         <button type="button" class="btn btn-link" onclick="goback()">返回</button>
                     </div>
                 </div>

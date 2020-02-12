@@ -20,7 +20,7 @@
 <H1>横坐标是：${mapList[0].content}</H1>
 
 
-<button id="getM">获取</button>
+<button id="getM" type="button">获取</button>
 </body>
 </html>
 

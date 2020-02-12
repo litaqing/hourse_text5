@@ -14,7 +14,7 @@
          <result column="address" property="address" jdbcType="VARCHAR" />
      <result column="payday" property="payday" jdbcType="INTEGER" />
   </resultMap>
-	<select id="findhetong" parameterType="String" resultType="com.myssm.paul.pojo.Hetong">
+	<select id="findhetong" parameterType="String" resultMap="BaseResultMap">
 		select * from hetong where house_id=#{house_id}
 	</select>
 	<insert id="inserthetong" parameterType="com.myssm.paul.pojo.Hetong">

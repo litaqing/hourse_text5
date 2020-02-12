@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
-    <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui-datepicker.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
@@ -35,6 +35,7 @@
 	<form name="hetong" action="/hetong/updatehetong.action">
 	<div class="title">房屋租赁合同</div>
 	<input type="hidden" name="house_id" value="${hetong.house_id}"/>
+		<%--<p>合同id：<span name="house_id">${hetong.house_id}</span></p>　　　--%>
 	<p>出租方：<span name="chuzu">${hetong.chuzu}</span>（以下简称甲方）；</p>　　　
 	<p>承租方：<span name="zuke">${hetong.zuke}</span>（以下简称乙方）。　</p>　
 	<p>租赁房屋地址：<span name="zuke">${hetong.address}</span>　</p>　
@@ -59,8 +60,17 @@
 		<input class="btn btn-primary btn6 mr10"  value="修改合同" type="submit">
         <input class="btn btn6" onclick="javascript:to_dayin()" value="打印合同" type="button">
         <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+			<input class="btn btn6" id="test" value="测试" type="button">
         </div>
 	</form>
 </div>
 </body>
 </html>
+<<script type="text/javascript">
+<%--var data = eval('${warnDuraType}');--%>
+$(test).click(function() {
+
+alert("测试！")
+});
+
+</script>
