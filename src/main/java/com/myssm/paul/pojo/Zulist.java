@@ -2,6 +2,8 @@ package com.myssm.paul.pojo;
 
 public class Zulist {
 	private Integer zid;
+
+
 	private String house_id;
 	private Double price;
 	private String address;
@@ -50,5 +52,18 @@ public class Zulist {
 	public void setContract_id(Integer contract_id) {
 		this.contract_id = contract_id;
 	}
-	
+	@Override
+	public String toString() {
+		return "Zulist{" +
+				"zid=" + zid +
+				", house_id='" + house_id + '\'' +
+				", price=" + price +
+				", address='" + address + '\'' +
+				", userlist_id=" + userlist_id +
+				", contract_id=" + contract_id +
+				", userlist=" + userlist +
+				'}';
+	}
+
+
 }

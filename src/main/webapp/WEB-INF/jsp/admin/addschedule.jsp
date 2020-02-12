@@ -68,7 +68,7 @@
 </div>
 <div class="result-content">
 <div class="sidebar-title">
-        <form action="/schedule/insertschedule.action" method="post" id="myform" name="myform" enctype="multipart/form-data" >
+        <form action="/schedule/insertschedule.action" method="post" id="myform" name="myform" >
                     <table class="insert-tab" width="100%">
                         <tbody>
                                 <th><i class="require-red">*</i>日期：</th>

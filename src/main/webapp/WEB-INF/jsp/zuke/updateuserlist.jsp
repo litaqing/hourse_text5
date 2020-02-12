@@ -76,7 +76,7 @@
 </div>
 <div class="result-content">
 <div class="sidebar-title">
-        <form action="checkuserlist.action" method="post" id="myform" name="myform" enctype="multipart/form-data" >
+        <form action="checkuserlist.action" method="post" id="myform" name="myform" >
                     <table class="insert-tab" width="100%">
                         <tbody>
                         	<input type="hidden" name="id" value="${userlist.id}"/>

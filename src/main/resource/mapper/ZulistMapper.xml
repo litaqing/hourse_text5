@@ -47,7 +47,7 @@
 			zulist z
 		JOIN `userlist` u ON u.id = z.userlist_id
 	</select>
-	<select id="findzulist" resultType="com.myssm.paul.pojo.Zulist" parameterType="String">
+	<select id="findzulist" resultMap="userlistzuResultMap" parameterType="String">
 		SELECT * FROM
 			zulist WHERE house_id =#{house_id}
 	</select>

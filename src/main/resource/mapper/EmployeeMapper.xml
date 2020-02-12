@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.myssm.paul.dao.EmployeeMapper">
-<select id="selectAll" resultType="com.myssm.paul.pojo.Employee">
-    select id,last_name lastName,email ,addr from empl
-  </select>
-</mapper>

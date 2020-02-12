@@ -1,8 +1,8 @@
 package com.myssm.paul.pojo;
 
 public class Apply {
-private Integer id;
-private String house_id;
+    private Integer apply_id;
+    private String house_id;
 private String address;
 private double area;
 private double price;
@@ -21,12 +21,14 @@ public String getStatus() {
 public void setStatus(String status) {
 	this.status = status;
 }
-public Integer getId() {
-	return id;
-}
-public void setId(Integer id) {
-	this.id = id;
-}
+	public Integer getApply_id() {
+		return apply_id;
+	}
+
+	public void setApply_id(Integer apply_id) {
+		this.apply_id = apply_id;
+	}
+
 public String getHouse_id() {
 	return house_id;
 }
@@ -59,7 +61,7 @@ public void setUserlist_id(Integer userlist_id) {
 }
 @Override
 public String toString() {
-	return "Apply [id=" + id + ", house_id=" + house_id + ", address=" + address + ", area=" + area + ", price=" + price
+	return "Apply [apply_id=" + apply_id + ", house_id=" + house_id + ", address=" + address + ", area=" + area + ", price=" + price
 			+ ", userlist_id=" + userlist_id + ", status=" + status + ", userlist=" + userlist + "]";
 }
 

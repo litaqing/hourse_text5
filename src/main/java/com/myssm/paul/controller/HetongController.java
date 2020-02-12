@@ -30,6 +30,7 @@ public class HetongController {
 	//新增合同信息，修改房屋列表的状态，从申请列表中删除，增添到租赁列表当中
 	@RequestMapping("/inserthetong")
 	public String inserthetong(Model model, Hetong hetong){
+		System.out.println(hetong.toString());
 		//新增合同信息
 		hetongService.inserthetong(hetong);
 		Hetong hetong1=hetongService.findhetong(hetong.getHouse_id());
@@ -40,17 +41,19 @@ public class HetongController {
 		//添加到租赁列表当中
 		Zulist zulist=new Zulist();
 		Apply apply=applyService.findbyhouse_id(hetong.getHouse_id());
+		System.out.println(apply.toString());
 		zulist.setHouse_id(hetong.getHouse_id());
 		zulist.setUserlist_id(apply.getUserlist_id());
 		zulist.setContract_id(hetong1.getId());
 		zulist.setPrice(apply.getPrice());
 		zulist.setAddress(apply.getAddress());
+		System.out.println(zulist.toString());
 		zulistService.insertzulist(zulist);
 		//从申请列表中删除
 		applyService.deletebyhouse_id(hetong1.getHouse_id());
 		model.addAttribute("error", "zusuccess");
 		return "redirect:/zulist/findzulist.action";
-		
+//		return "请求完成";
 	}
 	@RequestMapping("/seehetong")
 	public String seehetong(String house_id,Model model){
