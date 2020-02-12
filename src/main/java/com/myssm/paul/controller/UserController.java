@@ -44,9 +44,9 @@ public class UserController {
 	}
 	@RequestMapping("/toindex")
 	public String toindex(Model model) throws Exception{
-		
-		
-		return "admin/index";
+
+		model.addAttribute("mainPage", "index.jsp");
+		return "admin/main1";
 		}
 	}
 

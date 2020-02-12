@@ -68,7 +68,7 @@
 </div>
 <div class="result-content">
 <div class="sidebar-title">
-        <form action="/schedule/updateschedule.action" method="post" id="myform" name="myform" enctype="multipart/form-data" >
+        <form action="/schedule/updateschedule.action" method="post" id="myform" name="myform">
                     <table class="insert-tab" width="100%">
                         <tbody>
                         	<input type="hidden" id="id" name="id" value="${schedule.id}"/>
