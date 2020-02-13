@@ -83,7 +83,7 @@
   </if>
 
 </select>
-<select id="selectByUser" resultType="com.myssm.paul.pojo.User" parameterType="com.myssm.paul.pojo.User" >
+<select id="selectByUser" resultMap="BaseResultMap" parameterType="com.myssm.paul.pojo.User" >
   select *
   from user
   <where>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="initial-scale=1.0" />
 
     <style type="text/css">
-      #allmap {width: 1200px;height: 400px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+        #allmap {width: 1200px;height: 400px;overflow: hidden;margin:0;font-family:"微软雅黑";}
     </style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=UyuVONEtIuG8g0RiR47I8e0alOjGG4cv"></script>
     <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
@@ -24,11 +24,11 @@
 <script type="text/javascript">
 
     <%--$(document).ready(function () {--%>
-        <%--var data = [[${mapList}]];--%>
-        <%--alert(data);--%>
-      <%----%>
+    <%--var data = [[${mapList}]];--%>
+    <%--alert(data);--%>
+    <%----%>
     <%--});--%>
-        var data = eval(${mapList});
+    var data = eval(${mapList});
 
 
 
@@ -114,20 +114,45 @@
         var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
         var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
         map.openInfoWindow(infoWindow,point); //开启信息窗口
-       if (!infoWindow.isOpen()){
+        if (!infoWindow.isOpen()){
             infoWindow.addEventListener("open",function (e) {
                 document.getElementById('btn').onclick=function () {
                     alert("点击成功！"+id);
+                    toApply(id);
                 }
             })
-       }else{
+        }else{
             var btn=document.getElementById('btn');
             btn.onclick=function () {
                 alert("点击成功！"+id);
+                toApply(id);
             }
-       }
+        }
     }
+    function toApply(id) {
 
+        $.ajax({
+            url:"applycheckuserlist.action",
+            type:"post",
+            dataType:"text",
+            data:{
+                "id":  id
+            },
+            success:function (error) {
+                if(error=="applycheck"){
+                    alert("你还没完善个人信息，请完善个人信息后再进行申请操作");
+                }else if(error=="applysuccess"){
+                    alert("申请成功，请耐心等待房东联系您！");
+                }else{
+                    alert(error);
+                }
+            },
+            error:function () {
+                alert("请求失败！");
+            }
+
+        });
+    }
     //
     //
 

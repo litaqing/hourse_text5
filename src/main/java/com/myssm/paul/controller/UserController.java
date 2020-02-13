@@ -48,5 +48,11 @@ public class UserController {
 		model.addAttribute("mainPage", "index.jsp");
 		return "admin/main1";
 		}
+	@RequestMapping("/toindex_zuke")
+	public String toindex_zuke(Model model) throws Exception{
+
+		model.addAttribute("mainPage", "index.jsp");
+		return "zuke/main";
+	}
 	}
 

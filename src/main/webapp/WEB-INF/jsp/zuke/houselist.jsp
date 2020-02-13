@@ -27,7 +27,6 @@
 	}else if(error=="applysuccess"){
 		alert("申请成功，请耐心等待房东联系您！");	
 	}
-		
 	</script>
 </head>
 <body>

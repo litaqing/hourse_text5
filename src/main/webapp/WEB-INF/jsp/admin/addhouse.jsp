@@ -137,6 +137,7 @@
           </div>
 </body>
 </html>
+
 <script type="text/javascript">
 
     // 百度地图API功能
@@ -207,7 +208,8 @@
         }
         var x=pp.lng;
         var y=pp.lat;
-        var content="地址："+address+"<br/>价格："+price+"<br/>状态："+status;
+        // var content="地址："+address+"<br/>价格："+price+"<br/>状态："+status;
+        var content="地址："+address+"<br/>价格："+price+"<br/>状态："+status+"<br/><button id='btn'>我要租赁</button>"
          $.ajax({
              url:"addhouse",
              dataType:"text",
@@ -232,7 +234,7 @@
                  console.log("成功")
              },
              error:function () {
-                 console.log("成功")
+                 alert("请求失败！");
                  // alert("执行失败");
              }
 

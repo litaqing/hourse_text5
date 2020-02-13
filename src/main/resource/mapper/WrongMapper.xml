@@ -22,7 +22,7 @@
 		
 		</where>
 	</select>
-	<select id="findbyid" parameterType="Integer" resultType="com.myssm.paul.pojo.Wrong">
+	<select id="findbyid" parameterType="Integer" resultMap="BaseResultMap">
 		select * from wrong 
 		  where id=#{id}
 	</select>

@@ -51,8 +51,8 @@
         <div class="topbar-logo-wrap clearfix">
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
-                <li><a class="on sendRequest" href="javascript:void(0)" onclick="to_page('toindex.action')">首页</a></li>
-               
+                <%--<li><a class="on sendRequest" href="javascript:void(0)" onclick="to_page('toindex.action')">首页</a></li>--%>
+                    <li><a href="/toindex_zuke.action">首页</a></li>
             </ul>
         </div>
         <div class="top-info-wrap">
@@ -75,7 +75,7 @@
                     <a class="a"><i class="icon-font">&#xe003;</i>房源信息</a>
                     <div class="p"><ul class="sub-menu">
                         <li><a href="/houselist.action"><i class="icon-font">&#xe008;</i>房源列表</a></li>
-                        
+                        <li><a href="/tomap.action"><i class="icon-font">&#xe008;</i>地图找房</a></li>
        
                     </ul>
                     </div>

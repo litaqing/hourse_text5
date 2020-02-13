@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.myssm.paul.pojo.Houselist;
+import com.myssm.paul.pojo.User;
 import com.myssm.paul.service.HouselistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -105,24 +107,21 @@ public class HoustlistController {
 		}
 	}
 	@RequestMapping("/tomap")
-	public String getMap(Model model){
+	public String getMap(Model model, HttpSession httpSession){
         List<Houselist> houselist=houselistService.selectAll();
-//		List<Map>  mapList=new ArrayList<Map>();
-//		mapList.add(new Map(118.777882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-//		mapList.add(new Map(118.457882,32.049839,"地址：北京市东城区东华门大街"));
-//		mapList.add(new Map(118.62882,32.039839,"地址：北京市东城区正义路甲5号"));
-//		mapList.add(new Map(118.3882,32.059839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-//		mapList.add(new Map(118.6666,32.019839,"地址：北京市东城区东华门大街"));
-//		mapList.add(new Map(118.577882,32.051839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-//		mapList.add(new Map(118.377882,32.052839,"地址：北京市东城区东华门大街"));
-//		mapList.add(new Map(118.277882,32.053839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-//		mapList.add(new Map(118.177882,32.054839,"地址：北京市东城区东华门大街"));
-//		mapList.add(new Map(118.077882,31.055839,"地址：北京市东城区王府井大街88号乐天银泰百货八层"));
-//		mapList.add(new Map(118.795394,32.027002,"地址：北京市东城区东华门大街"));
+
 		JSONArray array= JSONArray.parseArray(JSON.toJSONString(houselist));
 		model.addAttribute("mapList",array);
 		model.addAttribute("mainPage", "map.jsp");
-		return "admin/main1";
+		User user=(User) httpSession.getAttribute("user");
+		if (user==null){
+			return "login";
+		}else if (user.getType().equals("zuke")){
+			return "zuke/main";
+		}else{
+			return "admin/main1";
+		}
+
 	}
 //	@RequestMapping(value = "/getMap",method = RequestMethod.POST)
 //	public List<Map> getMap(){

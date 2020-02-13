@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.servlet.http.HttpSession;
@@ -25,17 +27,30 @@ public class ApplyController {
 	@Autowired
 	private ApplyService applyService;
 	//申请看房
-	@RequestMapping("/applycheckuserlist")
-	public String applycheckuserlist(HttpSession httpSession,Model model,Integer id){
+	@RequestMapping(value = "/applycheckuserlist",produces = "text/plain;charset=utf-8")
+	@ResponseBody
+	public String applycheckuserlist(HttpSession httpSession, Integer id){
+		String error="";
 		User user1= (User) httpSession.getAttribute("user");
+		ModelAndView mv=new ModelAndView();
 		Integer user_id=user1.getId();
 		Userlist list=userlistService.findhasuserlist(user_id);
+		error="applycheck";
 		if(list==null){
-			model.addAttribute("error", "applycheck");
-			return "redirect:houselist.action";
+			mv.addObject("error", error);
+			return error;
 		}else{
+
 			Houselist houselist=houselistService.findid(id);
+			if (houselist.getStatus().equalsIgnoreCase("已被申请")){
+				error="已被申请";
+			}else if (houselist.getStatus().equalsIgnoreCase("申请中")){
+				error="申请中";
+			}else{
+				error="applysuccess";
+			}
 			houselist.setStatus("已被申请");
+
 			houselistService.updatehousestatus(houselist);
 			Integer userlist_id=list.getId();
 			Apply apply=new Apply();
@@ -46,13 +61,11 @@ public class ApplyController {
 			apply.setStatus("申请中");
 			apply.setUserlist_id(userlist_id);
 			applyService.insertapply(apply);
-			model.addAttribute("error", "applysuccess");
-			return "redirect:houselist.action";
-			
-			
+			mv.addObject("error", error);
+			return error;
 		}
-		
 	}
+
 	//管理员查看申请看房列表
 	@RequestMapping("/findapplylist")
 	public String findapplylist(Model model,@RequestParam(required=false,defaultValue="1") Integer page,

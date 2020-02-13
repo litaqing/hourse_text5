@@ -101,18 +101,18 @@ FROM
 	`user` u
 , userlist ul where u.id = ul.user_id and u.type='zuke'
 	</select>
- 	<select id="findhasuserlist" parameterType="Integer" resultType="com.myssm.paul.pojo.Userlist">
+ 	<select id="findhasuserlist" parameterType="Integer" resultMap="userMap">
 		select * from userlist where user_id=#{user_id}
 	</select>
  	
- 	<select id="checkuserlist" parameterType="String" resultType="com.myssm.paul.pojo.Userlist">
+ 	<select id="checkuserlist" parameterType="String" resultMap="userMap">
 		select * from userlist where idcard=#{idcard}
 	</select>
 	<insert id="insertuserlist" parameterType="com.myssm.paul.pojo.Userlist">
 	  insert into userlist(name,idcard,phone,user_id) 
 	  values(#{name},#{idcard},#{phone},#{user_id})
 	</insert>
-	<select id="finduserlistupdate" parameterType="com.myssm.paul.pojo.Userlist" resultType="com.myssm.paul.pojo.Userlist">
+	<select id="finduserlistupdate" parameterType="com.myssm.paul.pojo.Userlist" resultMap="userMap">
 		select * from userlist where idcard=#{idcard} and id!=#{id}
 	</select>
 	<update id="updateuserlist" parameterType="com.myssm.paul.pojo.Userlist">

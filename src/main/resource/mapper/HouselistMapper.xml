@@ -56,13 +56,13 @@
 		</if>
 		</where>
 	</select>
-	<select id="findid" parameterType="Integer" resultType="com.myssm.paul.pojo.Houselist">
+	<select id="findid" parameterType="Integer" resultMap="BaseResultMap">
 		select * from houselist where id=#{id}
 	</select>
-	<select id="findhouseid" parameterType="String" resultType="com.myssm.paul.pojo.Houselist">
+	<select id="findhouseid" parameterType="String" resultMap="BaseResultMap">
 		select * from houselist where houseid=#{houseid}
 	</select>
-	<select id="findhouseidupdate" parameterType="com.myssm.paul.pojo.Houselist" resultType="com.myssm.paul.pojo.Houselist">
+	<select id="findhouseidupdate" parameterType="com.myssm.paul.pojo.Houselist" resultMap="BaseResultMap">
 		select * from houselist where houseid=#{houseid} and id=#{id}
 	</select>
 	<update id="updatehouse" parameterType="com.myssm.paul.pojo.Houselist">

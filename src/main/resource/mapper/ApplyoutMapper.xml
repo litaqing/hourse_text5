@@ -19,7 +19,7 @@
 		</collection>
      
   </resultMap>
-  <select id="findbyid" resultType="com.myssm.paul.pojo.Applyout" parameterType="Integer">
+  <select id="findbyid" resultMap="applyoutResultMap" parameterType="Integer">
 	select * from applyout where aoid=#{aoid}
 	</select>
   <select id="findallapplyout" resultMap="applyoutResultMap">
