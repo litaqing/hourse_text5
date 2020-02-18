@@ -11,7 +11,7 @@
       <result column="userlist_id" property="userlist_id" jdbcType="INTEGER" />
       <association property="userlist" javaType="com.myssm.paul.pojo.Userlist">
 			<!-- column:userlist表的主键对应的列  property：userlist对象中id属性-->
-	<id column="id" property="id"/>		
+	<id column="id" property="id"/>
 	<result column="name" property="name" jdbcType="VARCHAR" />
     <result column="idcard" property="idcard" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />

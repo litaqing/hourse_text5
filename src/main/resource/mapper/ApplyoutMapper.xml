@@ -7,17 +7,15 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
      <result column="userlist_id" property="userlist_id" jdbcType="INTEGER" />
-     <collection property="userlist" ofType="com.myssm.paul.pojo.Userlist">
-			<id property="id" column="id"/>	
-		<!--用户id已经在user对象中存在，此处可以不设置-->
-			<!-- <result property="userId" column="id"/> -->
-			<result property="name" column="name"/>
-			<result property="idcard" column="idcard"/>
-			<result property="phone" column="phone"/>
-			<result property="user_id" column="user_id"/>
-			
-		</collection>
-     
+
+	  <association property="userlist" javaType="com.myssm.paul.pojo.Userlist">
+		  <!-- column:userlist表的主键对应的列  property：userlist对象中id属性-->
+		  <id column="id" property="id"/>
+		  <result column="name" property="name" jdbcType="VARCHAR" />
+		  <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+		  <result column="phone" property="phone" jdbcType="VARCHAR" />
+		  <result column="user_id" property="user_id" jdbcType="INTEGER" />
+	  </association>
   </resultMap>
   <select id="findbyid" resultMap="applyoutResultMap" parameterType="Integer">
 	select * from applyout where aoid=#{aoid}

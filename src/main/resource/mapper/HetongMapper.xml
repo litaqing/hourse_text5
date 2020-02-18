@@ -17,7 +17,7 @@
 	<select id="findhetong" parameterType="String" resultMap="BaseResultMap">
 		select * from hetong where house_id=#{house_id}
 	</select>
-	<insert id="inserthetong" parameterType="com.myssm.paul.pojo.Hetong">
+	<insert id="inserthetong"  parameterType="com.myssm.paul.pojo.Hetong">
 	  insert into hetong(house_id,address,payday,price,chuzu,chuzu_idcard,zuke,zuke_idcard,fromdate,todate) 
 	  values(#{house_id},#{address},#{payday},#{price},#{chuzu},#{chuzu_idcard},#{zuke},#{zuke_idcard},#{fromdate},#{todate})
 	</insert>

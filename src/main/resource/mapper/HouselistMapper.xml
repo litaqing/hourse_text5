@@ -60,7 +60,7 @@
 		select * from houselist where id=#{id}
 	</select>
 	<select id="findhouseid" parameterType="String" resultMap="BaseResultMap">
-		select * from houselist where houseid=#{houseid}
+		select * from houselist where id=#{houseid}
 	</select>
 	<select id="findhouseidupdate" parameterType="com.myssm.paul.pojo.Houselist" resultMap="BaseResultMap">
 		select * from houselist where houseid=#{houseid} and id=#{id}
@@ -87,6 +87,6 @@
 		delete from houselist where id=#{id}
 	</delete>
 	<delete id="deletehousebyhouseid" parameterType="String" >
-		delete from houselist where houseid=#{houseid}
+		delete from houselist where id=#{houseid}
 	</delete>
 </mapper>

@@ -147,28 +147,28 @@
                         <tbody>
                                 <th><i class="require-red">*</i>房屋id：</th>
                                 <td>
-                                    <input class="common-text required" value="${hetong.house_id}" id="house_id" name="house_id" size="50" type="text" readonly>
+                                    <input class="common-text required" value="${apply.house_id}" id="house_id" name="house_id" size="50" type="text" readonly>
                                 </td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>地址：</th>
-                                <td><input class="common-text" name="address" value="${hetong.address }" id="address" size="50" type="text"></td>
+                                <td><input class="common-text" name="address" value="${apply.address }" id="address" size="50" type="text"></td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>出租方（甲方）：</th>
-                                <td><input class="common-text" name="chuzu" value="${hetong.chuzu }" id="chuzu" size="50" type="text" ></td>
+                                <td><input class="common-text" name="chuzu" value="${chuzulist.name }" id="chuzu" size="50" type="text" ></td>
                             </tr>
                            <tr>
                                 <th><i class="require-red">*</i>出租方（甲方）证件号码：</th>
-                                <td><input class="common-text" name="chuzu_idcard" value="${hetong.chuzu_idcard}" id="chuzu_idcard" size="50" type="text"></td>
+                                <td><input class="common-text" name="chuzu_idcard" value="${chuzulist.idcard}" id="chuzu_idcard" size="50" type="text"></td>
                             </tr>
                              <tr>
                                 <th><i class="require-red">*</i>承租方（乙方）：</th>
-                              <td><input class="common-text" name="zuke" value="${hetong.zuke}" id="zuke" size="50" type="text"></td>
+                              <td><input class="common-text" name="zuke" value="${zukelist.name}" id="zuke" size="50" type="text"></td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>承租方（乙方）证件号码：</th>
-                              <td><input class="common-text" name="zuke_idcard" value="${hetong.zuke_idcard}" id="zuke_idcard" size="50" type="text"></td>
+                              <td><input class="common-text" name="zuke_idcard" value="${zukelist.idcard}" id="zuke_idcard" size="50" type="text"></td>
                             </tr>
                              <tr>
                                 <th><i class="require-red">*</i>起租时间：</th>

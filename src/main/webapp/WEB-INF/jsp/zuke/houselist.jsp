@@ -20,7 +20,7 @@
 	
 	</style>
 	<script type="text/javascript">
-	var error="${param.error}";
+	var error="${error}";
 	if(error=="applycheck"){
 
 	alert("你还没完善个人信息，请完善个人信息后再进行申请操作");
@@ -72,8 +72,8 @@
 										<td>
 										<c:choose>
 										<c:when test="${ houselist.status=='未租赁'}">
-													<a class="link-update"
-											href="applycheckuserlist.action?id=${houselist.id}">申请看房</a>
+													<%--<a class="link-update"	href="applycheckuserlist.action?id=${houselist.id}">申请看房</a>--%>
+                                            <a class="link-update"	href="javascript:void(0);" onclick="toApply(${houselist.id})">申请看房</a>
 											&nbsp;&nbsp; 
 												</c:when >
 												<c:when test="${ houselist.status=='已租赁'}">
@@ -138,6 +138,29 @@
 		}
 		document.houseForm.submit();
 	}
+	function toApply(id) {
+        $.ajax({
+            url:"applycheckuserlist.action",
+            type:"post",
+            dataType:"text",
+            data:{
+                "id":  id
+            },
+            success:function (error) {
+                if(error=="applycheck"){
+                    alert("你还没完善个人信息，请完善个人信息后再进行申请操作");
+                }else if(error=="applysuccess"){
+                    alert("申请成功，请耐心等待房东联系您！");
+                }else{
+                    alert(error);
+                }
+            },
+            error:function () {
+                alert("请求失败！");
+            }
+
+        });
+    }
 </script>
 </body>
 </html>

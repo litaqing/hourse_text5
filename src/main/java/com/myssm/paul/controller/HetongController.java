@@ -86,7 +86,6 @@ public class HetongController {
 		checkout.setStatus("已退租");
 		checkout.setUserlist_id(zulist.getUserlist_id());
 		checkoutService.insertcheckout(checkout);
-		houselistService.deletehousebyhouseid(house_id);
 		zulistService.deletezulist(house_id);
 		
 		model.addAttribute("error", "checkoutsuccess");

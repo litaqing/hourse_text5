@@ -19,6 +19,13 @@ public class UserlistServiceImpl implements UserlistService {
 		Userlist userlist=userlistMapper.findhasuserlist(user_id);
 		return userlist;
 	}
+
+	@Override
+	public Userlist findByid(Integer user_id) {
+		Userlist userlist=userlistMapper.findByid(user_id);
+		return userlist;
+	}
+
 	@Override
 	public Userlist checkuserlist(String idcard) {
 		Userlist userlist=userlistMapper.checkuserlist(idcard);

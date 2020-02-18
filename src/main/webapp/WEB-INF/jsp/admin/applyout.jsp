@@ -70,10 +70,10 @@
 										<td>${applyout.address}</td>
 										
 										<td>${applyout.status}</td>
-										<c:forEach items="${applyout.userlist}" var="userlist">
-										<td>${userlist.name}</td>
-										<td>${userlist.idcard}</td>
-										<td>${userlist.phone}</td>
+										<%--<c:forEach items="${applyout.userlist}" var="userlist">--%>
+										<td>${applyout.userlist.name}</td>
+										<td>${applyout.userlist.idcard}</td>
+										<td>${applyout.userlist.phone}</td>
 										
 										<td>
 										<c:choose>
@@ -94,7 +94,7 @@
 												</c:otherwise>
 										 </c:choose>
 										 </td>
-										</c:forEach>
+										<%--</c:forEach>--%>
 										
 									</tr>
 

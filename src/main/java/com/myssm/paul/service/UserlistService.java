@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface UserlistService {
 	Userlist findhasuserlist(Integer user_id);
+	Userlist findByid(Integer user_id);
 	Userlist checkuserlist(String idcard);
 	void insertuserlist(Userlist userlist);
 	void updateuserlist(Userlist userlist);

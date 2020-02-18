@@ -2,8 +2,6 @@ package com.myssm.paul.pojo;
 
 public class Zulist {
 	private Integer zid;
-
-
 	private String house_id;
 	private Double price;
 	private String address;

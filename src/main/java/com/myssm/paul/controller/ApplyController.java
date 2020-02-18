@@ -47,21 +47,21 @@ public class ApplyController {
 			}else if (houselist.getStatus().equalsIgnoreCase("申请中")){
 				error="申请中";
 			}else{
-				error="applysuccess";
+                houselist.setStatus("已被申请");
+                houselistService.updatehousestatus(houselist);
+                Integer userlist_id=list.getId();
+                Apply apply=new Apply();
+                apply.setHouse_id(houselist.getId().toString());
+                apply.setAddress(houselist.getAddress());
+                apply.setPrice(houselist.getPrice());
+                apply.setArea(houselist.getArea());
+                apply.setStatus("申请中");
+                apply.setUserlist_id(userlist_id);
+                applyService.insertapply(apply);
+                error="applysuccess";
+                mv.addObject("error", error);
 			}
-			houselist.setStatus("已被申请");
 
-			houselistService.updatehousestatus(houselist);
-			Integer userlist_id=list.getId();
-			Apply apply=new Apply();
-			apply.setHouse_id(houselist.getHouseid());
-			apply.setAddress(houselist.getAddress());
-			apply.setPrice(houselist.getPrice());
-			apply.setArea(houselist.getArea());
-			apply.setStatus("申请中");
-			apply.setUserlist_id(userlist_id);
-			applyService.insertapply(apply);
-			mv.addObject("error", error);
 			return error;
 		}
 	}

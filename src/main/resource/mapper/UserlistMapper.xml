@@ -8,7 +8,7 @@
     <result column="phone" property="phone" jdbcType="VARCHAR" />
      <result column="user_id" property="user_id" jdbcType="INTEGER" />
      <collection property="apply" ofType="com.myssm.paul.pojo.Apply">
-			<id property="id" column="apply_id"/>	
+			<id property="apply_id" column="apply_id"/>
 		<!--用户id已经在user对象中存在，此处可以不设置-->
 			<!-- <result property="userId" column="id"/> -->
 			<result property="house_id" column="house_id"/>
@@ -104,7 +104,9 @@ FROM
  	<select id="findhasuserlist" parameterType="Integer" resultMap="userMap">
 		select * from userlist where user_id=#{user_id}
 	</select>
- 	
+	<select id="findByid" parameterType="Integer" resultMap="userMap">
+		select * from userlist where id=#{userlist_id}
+	</select>
  	<select id="checkuserlist" parameterType="String" resultMap="userMap">
 		select * from userlist where idcard=#{idcard}
 	</select>

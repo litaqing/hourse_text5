@@ -8,7 +8,6 @@ public class Topaid {
 	private String address;
 	private Date date;
 	private Double price;
-	
 	private String name;
 	private Integer userlist_id;
 	private String status;

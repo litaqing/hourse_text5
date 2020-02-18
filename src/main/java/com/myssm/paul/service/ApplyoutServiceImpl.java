@@ -48,7 +48,6 @@ public class ApplyoutServiceImpl implements ApplyoutService {
 	@Override
 	public void agreeapplyout(Integer id) {
 		Applyout applyout=applyoutMapper.findbyid(id);
-		houselistMapper.deletehousebyhouseid(applyout.getHouse_id());
 		hetongMapper.deletehetong(applyout.getHouse_id());
 		Checkout checkout=new Checkout();
 		checkout.setHouse_id(applyout.getHouse_id());

@@ -3,10 +3,8 @@ package com.myssm.paul.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.myssm.paul.pojo.Hetong;
-import com.myssm.paul.pojo.User;
-import com.myssm.paul.pojo.Userlist;
-import com.myssm.paul.pojo.Zulist;
+import com.myssm.paul.pojo.*;
+import com.myssm.paul.service.ApplyService;
 import com.myssm.paul.service.UserlistService;
 import com.myssm.paul.service.ZulistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +24,20 @@ public class ZulistController {
 	private ZulistService zulistService;
 	@Autowired
 	private UserlistService userlistService;
+	@Autowired
+	private ApplyService applyService;
 	//跳到增添合同的页面
 	@RequestMapping("/toaddhetong")
-	public String toaddhetong(Model model,String house_id){
+	public String toaddhetong(Model model,String house_id, HttpSession httpSession){
 		Hetong hetong=new Hetong();
+		Apply apply=applyService.findbyhouse_id(house_id);
 		hetong.setHouse_id(house_id);
+		User chuzu=(User)httpSession.getAttribute("user");
+		Userlist chuzulist=userlistService.findhasuserlist(chuzu.getId());
+        Userlist zukelist=userlistService.findByid(apply.getUserlist_id());
+		model.addAttribute("apply", apply);
+		model.addAttribute("chuzulist", chuzulist);
+		model.addAttribute("zukelist", zukelist);
 		model.addAttribute("hetong", hetong);
 		model.addAttribute("mainPage", "addhetong.jsp");
 		

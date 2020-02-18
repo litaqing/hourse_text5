@@ -8,14 +8,19 @@ public class Applyout {
  private String address;
  private String status;
  private Integer userlist_id;
- private List<Userlist> userlist;
+ private Userlist userlist;
+
+	public Userlist getUserlist() {
+		return userlist;
+	}
+
+	public void setUserlist(Userlist userlist) {
+		this.userlist = userlist;
+	}
+
+
  
-public List<Userlist> getUserlist() {
-	return userlist;
-}
-public void setUserlist(List<Userlist> userlist) {
-	this.userlist = userlist;
-}
+
 public Integer getId() {
 	return id;
 }

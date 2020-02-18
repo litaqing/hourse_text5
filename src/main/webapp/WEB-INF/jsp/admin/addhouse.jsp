@@ -146,7 +146,7 @@
     }
 
     var map = new BMap.Map("l-map");
-    map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+    map.centerAndZoom("西安",12);                   // 初始化地图,设置城市和地图级别。
     map.enableScrollWheelZoom(true);
     var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
         {"input" : "suggestId"
@@ -240,6 +240,5 @@
 
          });
 
-        alert("content:"+content);
     });
 </script>

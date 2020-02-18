@@ -12,6 +12,10 @@ private List<Apply> apply;
 private List<Zulist> zulist;
 private List<Checkout> checkout;
 private List<Applyout> applyout;
+private List<Paid> paid;
+private List<Solve> solve;
+private List<Wrong> wrong;
+private List<Topaid> topaid;
 private User user;
 
 public User getUser() {
@@ -75,5 +79,34 @@ public Integer getUser_id() {
 public void setUser_id(Integer user_id) {
 	this.user_id = user_id;
 }
+	public List<Paid> getPaid() {
+		return paid;
+	}
 
+	public void setPaid(List<Paid> paid) {
+		this.paid = paid;
+	}
+
+	public List<Topaid> getTopaid() {
+		return topaid;
+	}
+
+	public void setTopaid(List<Topaid> topaid) {
+		this.topaid = topaid;
+	}
+	public List<Solve> getSolve() {
+		return solve;
+	}
+
+	public void setSolve(List<Solve> solve) {
+		this.solve = solve;
+	}
+
+	public List<Wrong> getWrong() {
+		return wrong;
+	}
+
+	public void setWrong(List<Wrong> wrong) {
+		this.wrong = wrong;
+	}
 }

@@ -3,20 +3,7 @@ package com.myssm.paul.pojo;
 public class Houselist {
   private Integer id;
 
-	@Override
-	public String toString() {
-		return "Houselist{" +
-				"id=" + id +
-				", houseid='" + houseid + '\'' +
-				", address='" + address + '\'' +
-				", area=" + area +
-				", price=" + price +
-				", status='" + status + '\'' +
-				", x=" + x +
-				", y=" + y +
-				", content='" + content + '\'' +
-				'}';
-	}
+
 
 	private String houseid;
   private String address;
@@ -87,5 +74,18 @@ public String getStatus() {
 public void setStatus(String status) {
 	this.status = status;
 }
-  
+	@Override
+	public String toString() {
+		return "Houselist{" +
+				"id=" + id +
+				", houseid='" + houseid + '\'' +
+				", address='" + address + '\'' +
+				", area=" + area +
+				", price=" + price +
+				", status='" + status + '\'' +
+				", x=" + x +
+				", y=" + y +
+				", content='" + content + '\'' +
+				'}';
+	}
 }

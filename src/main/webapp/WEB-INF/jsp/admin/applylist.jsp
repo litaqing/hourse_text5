@@ -28,7 +28,7 @@
 
 <div>
 	<form id="houseForm" name="houseForm"
-		action="houselist.action"
+		action="findapplylist.action"
 		method=post >
 						 <div class="result-title">
                     <div class="result-list">
